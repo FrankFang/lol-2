@@ -10,6 +10,24 @@
   *::after{ box-sizing: border-box; }
   body{ font-size: 12px; color: white;} 
   ul,ol{list-style: none;}
+  video, img{vertical-align: top;}
+  a{text-decoration: none; color: inherit;}
+  .icon{
+    background: transparent url('http://ossweb-img.qq.com/images/lol/v2/spr-v2.png') no-repeat 0 0;
+    width: 27px; height: 27px; display: inline-block;
+  }
+  .icon-hot{
+    background-position: -107px 0;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+  }
+  .icon-new{
+    background-position: -129px 0;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+  }
   .clearfix::after { content: ''; display: block; clear: both; }
   .clearfix { zoom: 1; }
   .topbar-wrapper{ background: #000; position: relative; }
@@ -26,8 +44,17 @@
     font-size: 10px; color: #838383; text-transform: uppercase;
   }
   #topbar .globalNavigation > ul > li p + p{ margin-top: -4px; }
-  #topbar .subMenu{ position: absolute; left: 0; top: 100%; width: 100%; background:red; 
-    display: none;
+  #topbar .subMenu{ position: absolute; left: 0; top: 100%; width: 100%; background: rgba(0,0,0,0.5); 
+    display: none; padding: 1em;
+  }
+  #topbar .subMenu a{
+    color: inherit;
+    text-decoration: none;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  #topbar .subMenu a:hover{
+    text-decoration: underline;
   }
   #topbar .globalNavigation:hover > .subMenu{
     display: block;
@@ -40,8 +67,6 @@
     padding-left: 17px;
   }
   #topbar > .icons > .icon{
-    background: transparent url('http://ossweb-img.qq.com/images/lol/v2/spr-v2.png') no-repeat 0 0;
-    width: 27px; height: 27px; display: inline-block;
     margin-right: 14px;
   }
   #topbar > .icons > .icon-search{ background-position: -7px 0; }
@@ -81,10 +106,73 @@
   #topbar .userNavigation .popover {
     display: none;
   }
-  #banner{ width: 1240px; margin-left: auto; margin-right: auto; position: relative; }
+  #banner{ width: 1240px; margin-left: auto; margin-right: auto; position: relative; 
+    height: 484px; padding-top: 0.1px;
+  }
   #banner .logo{ width: 190px; height: 100px; position: absolute; left: 0; top: -85px;
     background: transparent url('http://ossweb-img.qq.com/images/lol/v2/spr-v2.png') no-repeat 0 -32px;
   } 
+  .banner-wrapper{
+    background: black url('./images/pic-big-v7.jpg') no-repeat -250px -50px;
+  }
+  .icon-play{
+    background-image: url(./images/lol_spr.png);
+    background-position: -400px -56px;
+    height: 52px;
+    width: 52px;
+  }
+  .icon-pause{
+    background-image: url(./images/lol_spr.png);
+    background-position: -400px -2px;
+    height: 52px;
+    width: 52px;
+  }
+  #banner .icon-pause{
+    display: none;
+  }
+  #banner .video-wrapper{
+    position: relative;
+    width: 220px;
+    margin: 10px 0;
+  }
+  #banner .video-wrapper > .cover{
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,1) url('./images/video-cover.jpg') no-repeat 0 0;
+    z-index: 1;
+  }
+  #banner .video-wrapper > .cover .icon{
+    position: absolute; top: 50%; left: 50%;
+    margin-left: -26px; margin-top: -26px;
+  }
+  #banner .video-wrapper{
+  }
+  #banner .introduce {
+    padding-top: 20px;
+    margin-top: 100px;
+  }
+  #banner .introduce h2{
+    font-weight: bold;
+    font-size: 40px;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255,232,184,1)), to(rgba(175,133,48,1)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  #banner .introduce>a{
+    width: 160px;
+    line-height: 40px;
+    color: #CB9D46;
+    display: block;
+    border-top: 4px solid #6B5128;
+    border-bottom: 4px solid #B58B3D;
+    font-size: 14px;
+    background-position: 0 0, 100% 0;
+    background-repeat: no-repeat;
+    background-size: 4px 100%;
+    background-image: linear-gradient(to bottom, #6B5128 0%, #B58B3D 100%), linear-gradient(to bottom, #6B5128 0%, #B58B3D 100%);
+    text-align: center;
+  }
+
   </style>
 </head>
 <body>
@@ -118,31 +206,31 @@
             <ul class="clearfix">
               <li>
                 <a href="#" target="_top">新手指引</a>
-                <a href="#" target="_top"><i class="icon-hot"></i>资料库</a>
+                <a href="#" target="_top"><i class="icon icon-hot"></i>资料库</a>
                 <a href="#" target="_top">攻略中心</a>
                 <a href="#" target="_top">模式实验室</a>
                 <a href="#" target="_top">海克斯战利品库</a>
                 <a href="#" target="_top">屏保下载</a>
-                <a href="#" target="_top"><i class="icon-new"></i>宇宙官网</a>
+                <a href="#" target="_top">宇宙官网</a>
               </li>
               <li>
-                <a target="_top" href="#"><i class="publicspr ico-h"></i>点券充值</a>
+                <a target="_top" href="#">点券充值</a>
                 <a target="_top" href="#">道聚城</a>
                 <a href="#" target="_top">周边商城</a>
-                <a href="#" target="_top">LOL桌游</a>
+                <a href="#" target="_top"><i class="icon icon-hot"></i>LOL桌游</a>
                 <a href="#" target="_top">LOL信用卡</a>
                 <a href="#" target="_top">网吧特权</a>
               </li>
               <li>
                 <a href="#" target="_top">在线客服</a>
                 <a href="#" target="_top">视频中心</a>
-                <a href="#" target="_top"><i class="icon-hot"></i>活动中心</a>
+                <a href="#" target="_top"><i class="icon icon-hot"></i>活动中心</a>
                 <a target="_top" href="#">官方论坛</a>
                 <a href="#" target="_top">官方微信</a>
                 <a href="#" target="_top">官方微博</a>
               </li>
               <li>
-                <a target="_top" href="#"><i class="icon-hot"></i>LPL职业联赛</a>
+                <a target="_top" href="#"><i class="icon icon-new"></i>LPL职业联赛</a>
                 <a target="_top" href="#">甲级职业联赛</a>
                 <a target="_top" href="#">德玛西亚杯</a>
                 <a target="_top" href="#">城市争霸赛</a>
@@ -181,12 +269,89 @@
         </div>
       </div>
     </div>
-    <div id="banner">
-      <div class="logo"> </div>
+    <div class="banner-wrapper">
+      <div id="banner">
+        <div class="logo"> </div>
+        <div class="introduce">
+          <h2>对决！黎明VS黑夜</h2>
+          <p>秩序，混沌。二者相争不绝，无所不用其极。疾风化尽，命数将成。</p>
+          <div class="video-wrapper">
+            <div class="cover">
+              <div class="icon icon-play"></div>
+              <div class="icon icon-pause"></div>
+            </div>
+            <video src="./videos/small-v7.mp4"></video>
+          </div>
+          <a href="#">查看详情</a>
+        </div>
+      </div>
+    </div>
+    <div class="art-and-download">
+      <div class="art">
+        <style>
+          .art-and-download{
+            width: 1240px;
+            margin: 0 auto;
+          }
+          .art-and-download .slides{
+            width: 840px;
+          }
+          .art-and-download .slidesjs-pagination::after{
+            content: '';
+            display: block;
+            clear: both;
+          }
+          .art-and-download .slidesjs-pagination > li {
+            float: left;
+            width: 20%;
+            background: #000;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+          }
+          .art-and-download .slidesjs-pagination > li > a{
+            display: block;
+            padding: 5px 0;
+          }
+          .art-and-download .slidesjs-pagination > li > a.active{
+            background: red;
+          }
+        </style>
+        <div id="slides" class="slides">
+          <img src="./images/slides/1.png" alt="1">
+          <img src="./images/slides/2.png" alt="2">
+          <img src="./images/slides/3.png" alt="3">
+          <img src="./images/slides/4.png" alt="4">
+          <img src="./images/slides/5.png" alt="5">
+        </div>
+      </div>
+      <div class="download"></div>
     </div>
   </div>
   <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="./vendors/jquery.slides.min.js"></script>
   <script>
+    $('.video-wrapper > .cover > .icon-play').on('click', function(e){
+      let $play = $(e.currentTarget)
+      $play.closest('.video-wrapper').find('video')[0].play()
+      $play.closest('.cover').hide()
+    })
+
+    $(function(){
+      $("#slides").slidesjs({
+        navigation:false,
+        width: 840,
+        height: 440,
+        callback: {
+          loaded: function(){
+            var texts = ['文字1','文字2','文字3','文字4','文字5']
+            $('.slidesjs-pagination-item').each(function(index, element){
+              element.children[0].innerText = texts[index]
+            })
+          }
+        }
+      })
+    })
   </script>
 </body>
 </html>
